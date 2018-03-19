@@ -1,0 +1,24 @@
+plugins {
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        credentials {
+            username 'mwengineer'
+            password 'b1tr0tter'
+        }
+        url 'http://maven.meltwater.com/nexus/content/groups/MW-Central'
+    }
+    jcenter()
+}
+dependencies {
+    compile group: 'org.hibernate', name: 'hibernate-entitymanager', version: '5.2.15.Final'
+    compile group: 'com.querydsl', name: 'querydsl-apt', version:'4.0.3', classifier:'jpa'
+    compile group: 'com.querydsl', name: 'querydsl-jpa', version:'4.0.3'
+    compile 'com.h2database:h2:1.4.187'
+}
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
