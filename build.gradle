@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id "com.ewerk.gradle.plugins.querydsl" version "1.0.9"
 }
 
 repositories {
@@ -15,10 +16,22 @@ repositories {
 }
 dependencies {
     compile group: 'org.hibernate', name: 'hibernate-entitymanager', version: '5.2.15.Final'
-    compile group: 'com.querydsl', name: 'querydsl-apt', version:'4.0.3', classifier:'jpa'
-    compile group: 'com.querydsl', name: 'querydsl-jpa', version:'4.0.3'
+    compile group: 'com.querydsl', name: 'querydsl-jpa', version:'4.1.4'
     compile 'com.h2database:h2:1.4.187'
 }
 
 sourceCompatibility = '1.8'
 targetCompatibility = '1.8'
+
+sourceSets {
+    main {
+        java {
+            srcDir "$buildDir/generated-sources/apt"
+        }
+    }
+}
+
+querydsl {
+    jpa = true
+    querydslSourcesDir = "$buildDir/generated-sources/apt"
+}
