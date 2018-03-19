@@ -23,6 +23,7 @@ dependencies {
 sourceCompatibility = '1.8'
 targetCompatibility = '1.8'
 
+// Make IntelliJ happier: https://github.com/ewerk/gradle-plugins/issues/40#issuecomment-256318852
 sourceSets {
     main {
         java {
